@@ -53,7 +53,7 @@ public class PersonVo {
     }
 
     public String showInfo() {
-        return "\t"+this.name+"\t"+this.hp+"\t"+this.company;
+        return this.personId+"\t"+this.name+"\t"+this.hp+"\t"+this.company;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.javaex.phone;
 
+import java.util.InputMismatchException;
 import java.util.List;
 
 
@@ -31,13 +32,15 @@ public class PhoneApp {
                     break;
 
                 case 3:
-                    personVo = phoneView.showUpdate();
+                    personList = phoneDao.getPersonList();
+                    personVo = phoneView.showUpdate(personList);
                     phoneDao.personUpdate(personVo);
                     phoneView.showUpdateResult();
                     break;
 
                 case 4:
-                    int delNo = phoneView.showDel();
+                    personList = phoneDao.getPersonList();
+                    int delNo = phoneView.showDel(personList);
                     phoneDao.personDelete(delNo);
                     phoneView.showDelResult();
                     break;
