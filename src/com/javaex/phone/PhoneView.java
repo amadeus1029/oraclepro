@@ -69,6 +69,7 @@ public class PhoneView {
         System.out.println("<3.수정>");
         System.out.print(">번호: ");
         int personId = sc.nextInt();
+        sc.nextLine();
         System.out.print(">이름: ");
         String name = sc.nextLine();
         System.out.print(">휴대전화: ");
@@ -95,7 +96,7 @@ public class PhoneView {
     public String showSearch() {
         sc.nextLine();
         System.out.println("<5.검색>");
-        System.out.print(">이름: ");
+        System.out.print(">검색어: ");
         return sc.nextLine();
     }
 
