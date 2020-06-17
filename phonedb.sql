@@ -44,7 +44,7 @@ from    person;
 update  person
 set     hp = '010-9999-9999',
         company = '02-9999-9999'
-where person_id = 4;
+where   person_id = 4;
 
 
 -- 테이블 딜리트
