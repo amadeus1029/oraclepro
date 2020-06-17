@@ -21,7 +21,6 @@ public class PhoneDao {
         try {
             Class.forName(driver);
             conn = DriverManager.getConnection(url, id, pw);
-            System.out.println("DB 접속성공");
         } catch (ClassNotFoundException e) {
             System.out.println("error: 드라이버 로딩 실패 - " + e);
         } catch (SQLException e) {
@@ -76,6 +75,8 @@ public class PhoneDao {
         closeConnect();
 
         return personList;
+
+
     }
 
     public void personInsert(PersonVo personVo) {
@@ -91,8 +92,6 @@ public class PhoneDao {
             pstmt.setString(3, personVo.getCompany());
 
             int count = pstmt.executeUpdate();
-
-            System.out.println(count + "건 입력되었습니다.");
 
         } catch (SQLException e) {
             System.out.println("error:" + e);
@@ -118,8 +117,6 @@ public class PhoneDao {
             pstmt.setInt(4, personVo.getPersonId());
 
             int count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
-            // 4.결과처리
-            System.out.println(count + "건 업데이트 되었습니다.");
 
         } catch (SQLException e) {
             System.out.println("error:" + e);
@@ -138,8 +135,6 @@ public class PhoneDao {
             pstmt = conn.prepareStatement(personDeleteQuery); //쿼리문 준비
             pstmt.setInt(1, personId); //4번을 지운다
             int count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
-            // 4.결과처리
-            System.out.println(count + "건 삭제되었습니다.");
 
         } catch (SQLException e) {
             System.out.println("error:" + e);

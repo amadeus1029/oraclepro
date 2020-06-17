@@ -52,6 +52,10 @@ public class PersonVo {
         this.company = company;
     }
 
+    public String showInfo() {
+        return "\t"+this.name+"\t"+this.hp+"\t"+this.company;
+    }
+
     @Override
     public String toString() {
         return "PersonVo{" +
