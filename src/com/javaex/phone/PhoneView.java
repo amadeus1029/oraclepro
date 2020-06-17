@@ -7,16 +7,20 @@ import java.util.Scanner;
 public class PhoneView {
     private Scanner sc;
 
+
+    //입력시작
     public PhoneView() {
         this.sc = new Scanner(System.in);
     }
 
+    //안내문구
     public void showStart() {
         System.out.println("*****************************************");
         System.out.println("*            전화번호 관리 프로그램           *");
         System.out.println("*****************************************");
     }
 
+    //메뉴
     public int showMenu() {
         while(true) {
             try {
@@ -26,18 +30,21 @@ public class PhoneView {
                 System.out.print(">메뉴번호: ");
                 return sc.nextInt();
             } catch (InputMismatchException e) {
-                System.out.println("[다시 입력해 주세요.]");
+                showEtc();
                 sc.nextLine();
             }
         }
     }
 
+    //리스트 출력
     public void showList(List<PersonVo> personList) {
         System.out.println("<1.리스트>");
         for (PersonVo p : personList) {
             System.out.println(p.showInfo());
         }
     }
+
+    //검색 출력
     public void showList(List<PersonVo> personList, String keyword) {
         boolean result = false;
         for (PersonVo p : personList) {
@@ -51,6 +58,7 @@ public class PhoneView {
         }
     }
 
+    //리스트 추가 출력
     public PersonVo showAdd() {
         sc.nextLine();
         System.out.println("<2.등록>");
@@ -63,10 +71,12 @@ public class PhoneView {
         return new PersonVo(name,hp,company);
     }
 
+    //리스트 추가결과 출력
     public void showAddResult() {
         System.out.println("[1건 등록되었습니다.]");
     }
 
+    //리스트 업데이트 출력
     public PersonVo showUpdate(List<PersonVo> personList) {
         sc.nextLine();
         System.out.println("<3.수정>");
@@ -99,10 +109,12 @@ public class PhoneView {
         }
     }
 
+    //리스트 업데이트결과 출력
     public void showUpdateResult() {
         System.out.println("[1건 수정되었습니다.]");
     }
 
+    //리스트 삭제 출력
     public int showDel(List<PersonVo> personList) {
         System.out.println("<4.식제>");
         while(true) {
@@ -127,10 +139,12 @@ public class PhoneView {
         }
     }
 
+    //리스트 삭제결과 출력
     public void showDelResult() {
         System.out.println("[1건 삭제되었습니다.]");
     }
 
+    //리스트 검색 출력
     public String showSearch() {
         sc.nextLine();
         System.out.println("<5.검색>");
@@ -138,10 +152,12 @@ public class PhoneView {
         return sc.nextLine();
     }
 
+    //메뉴 입력 실수 출력
     public void showEtc() {
         System.out.println("[다시 입력해 주세요.]");
     }
 
+    //메뉴 종료 출력
     public void showEnd() {
         System.out.println("=========================================");
         System.out.println("*                감사합니다                *");
