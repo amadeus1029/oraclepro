@@ -44,7 +44,7 @@ public class PhoneView {
             i++;
         }
         if(!result) {
-            System.out.println("[일치하는 결과 없습니다.]");
+            System.out.println("[일치하는 결과가 없습니다.]");
         }
     }
 
@@ -105,9 +105,9 @@ public class PhoneView {
     }
 
     public void showEnd() {
-        System.out.println("===================================");
-        System.out.println("*             감사합니다             *");
-        System.out.println("===================================");
+        System.out.println("=========================================");
+        System.out.println("*                감사합니다                *");
+        System.out.println("=========================================");
         sc.close();
     }
 }
