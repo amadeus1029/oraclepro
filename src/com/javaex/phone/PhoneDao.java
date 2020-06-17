@@ -110,14 +110,14 @@ public class PhoneDao {
                             "set name = ?, " +
                             "    hp = ?,  " +
                             "    company = ? " +
-                            "where person_id = ?  "; //?는 나중에 채움
-            pstmt = conn.prepareStatement(personUpdateQuery); //쿼리문 준비
+                            "where person_id = ?  ";
+            pstmt = conn.prepareStatement(personUpdateQuery);
             pstmt.setString(1, personVo.getName());
             pstmt.setString(2, personVo.getHp());
             pstmt.setString(3, personVo.getCompany());
             pstmt.setInt(4, personVo.getPersonId());
 
-            count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
+            count = pstmt.executeUpdate();
 
 
         } catch (SQLException e) {
@@ -135,10 +135,10 @@ public class PhoneDao {
         try {
             String personDeleteQuery =
                     "delete person " +
-                            "where person_id = ? "; //?는 나중에 채움
-            pstmt = conn.prepareStatement(personDeleteQuery); //쿼리문 준비
-            pstmt.setInt(1, personId); //4번을 지운다
-            count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
+                            "where person_id = ? ";
+            pstmt = conn.prepareStatement(personDeleteQuery);
+            pstmt.setInt(1, personId);
+            count = pstmt.executeUpdate();
 
 
         } catch (SQLException e) {
