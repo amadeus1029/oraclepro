@@ -13,6 +13,7 @@ public class PhoneDao {
     private Connection conn = null;
     private PreparedStatement pstmt = null;
     private ResultSet rs = null;
+    private int count;
 
     public void phoneDao() {
     }
@@ -75,11 +76,9 @@ public class PhoneDao {
         closeConnect();
 
         return personList;
-
-
     }
 
-    public void personInsert(PersonVo personVo) {
+    public int personInsert(PersonVo personVo) {
         getConnect();
 
         try {
@@ -91,16 +90,18 @@ public class PhoneDao {
             pstmt.setString(2, personVo.getHp());
             pstmt.setString(3, personVo.getCompany());
 
-            int count = pstmt.executeUpdate();
+            count = pstmt.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println("error:" + e);
         }
 
         closeConnect();
+
+        return count;
     }
 
-    public void personUpdate(PersonVo personVo) {
+    public int personUpdate(PersonVo personVo) {
         getConnect();
 
         try {
@@ -116,16 +117,19 @@ public class PhoneDao {
             pstmt.setString(3, personVo.getCompany());
             pstmt.setInt(4, personVo.getPersonId());
 
-            int count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
+            count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
+
 
         } catch (SQLException e) {
             System.out.println("error:" + e);
         }
 
         closeConnect();
+
+        return count;
     }
 
-    public void personDelete(int personId) {
+    public int personDelete(int personId) {
         getConnect();
 
         try {
@@ -134,12 +138,15 @@ public class PhoneDao {
                             "where person_id = ? "; //?는 나중에 채움
             pstmt = conn.prepareStatement(personDeleteQuery); //쿼리문 준비
             pstmt.setInt(1, personId); //4번을 지운다
-            int count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
+            count = pstmt.executeUpdate(); //쿼리문 날린다!!!!!!
+
 
         } catch (SQLException e) {
             System.out.println("error:" + e);
         }
 
         closeConnect();
+
+        return count;
     }
 }

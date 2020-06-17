@@ -8,6 +8,7 @@ public class PhoneApp {
         PhoneView phoneView = new PhoneView();
         PhoneDao phoneDao = new PhoneDao();
         List<PersonVo> personList;
+        int count;
 
         boolean run = true;
 
@@ -25,22 +26,22 @@ public class PhoneApp {
 
                 case 2:
                     PersonVo personVo = phoneView.showAdd();
-                    phoneDao.personInsert(personVo);
-                    phoneView.showAddResult();
+                    count = phoneDao.personInsert(personVo);
+                    phoneView.showAddResult(count);
                     break;
 
                 case 3:
                     personList = phoneDao.getPersonList();
                     personVo = phoneView.showUpdate(personList);
-                    phoneDao.personUpdate(personVo);
-                    phoneView.showUpdateResult();
+                    count = phoneDao.personUpdate(personVo);
+                    phoneView.showUpdateResult(count);
                     break;
 
                 case 4:
                     personList = phoneDao.getPersonList();
                     int delNo = phoneView.showDel(personList);
-                    phoneDao.personDelete(delNo);
-                    phoneView.showDelResult();
+                    count = phoneDao.personDelete(delNo);
+                    phoneView.showDelResult(count);
                     break;
 
                 case 5:

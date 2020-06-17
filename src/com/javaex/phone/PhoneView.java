@@ -72,8 +72,8 @@ public class PhoneView {
     }
 
     //리스트 추가결과 출력
-    public void showAddResult() {
-        System.out.println("[1건 등록되었습니다.]");
+    public void showAddResult(int count) {
+        System.out.println("["+count+"건 등록되었습니다.]");
     }
 
     //리스트 업데이트 출력
@@ -110,8 +110,8 @@ public class PhoneView {
     }
 
     //리스트 업데이트결과 출력
-    public void showUpdateResult() {
-        System.out.println("[1건 수정되었습니다.]");
+    public void showUpdateResult(int count) {
+        System.out.println("["+count+"건 수정되었습니다.]");
     }
 
     //리스트 삭제 출력
@@ -140,8 +140,8 @@ public class PhoneView {
     }
 
     //리스트 삭제결과 출력
-    public void showDelResult() {
-        System.out.println("[1건 삭제되었습니다.]");
+    public void showDelResult(int count) {
+        System.out.println("["+count+"건 삭제되었습니다.]");
     }
 
     //리스트 검색 출력
