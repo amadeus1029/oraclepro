@@ -39,22 +39,13 @@ public class PhoneView {
     //리스트 출력
     public void showList(List<PersonVo> personList) {
         System.out.println("<1.리스트>");
+        int count = 0;
         for (PersonVo p : personList) {
             System.out.println(p.showInfo());
+            count++;
         }
-    }
-
-    //검색 출력
-    public void showList(List<PersonVo> personList, String keyword) {
-        boolean result = false;
-        for (PersonVo p : personList) {
-            if(p.getName().contains(keyword) || p.getHp().contains(keyword) || p.getCompany().contains(keyword)) {
-                System.out.println(p.showInfo());
-                result = true;
-            }
-        }
-        if(!result) {
-            System.out.println("[일치하는 결과가 없습니다.]");
+        if(count == 0) {
+            System.out.println("검색결과가 없습니다.");
         }
     }
 

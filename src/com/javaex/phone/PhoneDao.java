@@ -78,6 +78,46 @@ public class PhoneDao {
         return personList;
     }
 
+    public List<PersonVo> getPersonList(String keyword) {
+        getConnect();
+        List<PersonVo> personList = new ArrayList<PersonVo>();
+
+        try {
+            String personSelectQuery =
+                    "select  person_id," +
+                            "        name," +
+                            "        hp," +
+                            "        company " +
+                            "from    person " +
+                            "where   name like ?" +
+                            "or      hp   like ? " +
+                            "or      company like ?";
+            keyword ="%" + keyword + "%";
+            pstmt = conn.prepareStatement(personSelectQuery);
+            pstmt.setString(1,keyword);
+            pstmt.setString(2,keyword);
+            pstmt.setString(3,keyword);
+            rs = pstmt.executeQuery();
+            // 4.결과처리
+            while (rs.next()) {
+                int personId = rs.getInt("person_id");
+                String name = rs.getString("name");
+                String hp = rs.getString("hp");
+                String company = rs.getString("company");
+
+                PersonVo personVo = new PersonVo(personId, name, hp, company);
+                personList.add(personVo);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("error:" + e);
+        }
+
+        closeConnect();
+
+        return personList;
+    }
+
     public int personInsert(PersonVo personVo) {
         getConnect();
 
