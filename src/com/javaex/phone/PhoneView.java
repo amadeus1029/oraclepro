@@ -45,7 +45,19 @@ public class PhoneView {
             count++;
         }
         if(count == 0) {
-            System.out.println("검색결과가 없습니다.");
+            System.out.println("등록하신 번호가 없습니다.");
+        }
+    }
+    //검색결과 출력
+    public void showSearchResult(List<PersonVo> personList) {
+        System.out.println("<5.검색>");
+        int count = 0;
+        for (PersonVo p : personList) {
+            System.out.println(p.showInfo());
+            count++;
+        }
+        if(count == 0) {
+            System.out.println("검색 결과가 없습니다.");
         }
     }
 

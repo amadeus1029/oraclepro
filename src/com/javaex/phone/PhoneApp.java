@@ -47,7 +47,7 @@ public class PhoneApp {
                 case 5:
                     String keyword = phoneView.showSearch();
                     personList = phoneDao.getPersonList(keyword);
-                    phoneView.showList(personList);
+                    phoneView.showSearchResult(personList);
                     break;
 
                 case 6:
