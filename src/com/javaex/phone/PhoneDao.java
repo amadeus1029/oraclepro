@@ -45,6 +45,7 @@ public class PhoneDao {
         }
     }
 
+    //리스트 출력
     public List<PersonVo> getPersonList() {
         getConnect();
         List<PersonVo> personList = new ArrayList<PersonVo>();
@@ -78,6 +79,7 @@ public class PhoneDao {
         return personList;
     }
 
+    //검색
     public List<PersonVo> getPersonList(String keyword) {
         getConnect();
         List<PersonVo> personList = new ArrayList<PersonVo>();
@@ -118,6 +120,7 @@ public class PhoneDao {
         return personList;
     }
 
+    //등록
     public int personInsert(PersonVo personVo) {
         getConnect();
 
@@ -141,6 +144,7 @@ public class PhoneDao {
         return count;
     }
 
+    //수정
     public int personUpdate(PersonVo personVo) {
         getConnect();
 
@@ -169,6 +173,7 @@ public class PhoneDao {
         return count;
     }
 
+    //삭제
     public int personDelete(int personId) {
         getConnect();
 

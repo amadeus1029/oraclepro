@@ -29,7 +29,7 @@ public class PhoneView {
                 System.out.println("-----------------------------------------");
                 System.out.print(">메뉴번호: ");
                 return sc.nextInt();
-            } catch (InputMismatchException e) {
+            } catch (InputMismatchException e) { //숫자 외의 키 입력시
                 showEtc();
                 sc.nextLine();
             }
@@ -44,7 +44,7 @@ public class PhoneView {
             System.out.println(p.showInfo());
             count++;
         }
-        if(count == 0) {
+        if(count == 0) { //등록한 번호가 없는 경우
             System.out.println("등록하신 번호가 없습니다.");
         }
     }
@@ -56,12 +56,12 @@ public class PhoneView {
             System.out.println(p.showInfo());
             count++;
         }
-        if(count == 0) {
+        if(count == 0) { //해당하는 이름/번호가 없는 경우
             System.out.println("검색 결과가 없습니다.");
         }
     }
 
-    //리스트 추가 출력
+    //리스트 등록 출력
     public PersonVo showAdd() {
         sc.nextLine();
         System.out.println("<2.등록>");
@@ -89,12 +89,12 @@ public class PhoneView {
                 int personId = sc.nextInt();
                 sc.nextLine();
                 boolean checkEmpty = false;
-                for(PersonVo p : personList) {
+                for(PersonVo p : personList) { //해당하는 번호 있는지 확인
                     if(p.getPersonId() == personId) {
                         checkEmpty = true;
                     }
                 }
-                if(!checkEmpty) {
+                if(!checkEmpty) { //해당하는 번호가 없다면
                     System.out.println("존재하지 않는 번호입니다");
                     continue;
                 }
@@ -105,7 +105,7 @@ public class PhoneView {
                 System.out.print(">회사번호: ");
                 String company = sc.nextLine();
                 return new PersonVo(personId,name,hp,company);
-            }  catch (InputMismatchException e) {
+            }  catch (InputMismatchException e) { //숫자 외의 키 입력시
                 System.out.println("[번호는 숫자만 입력하실 수 있습니다]");
                 sc.nextLine();
             }
@@ -125,17 +125,17 @@ public class PhoneView {
                 System.out.print(">번호: ");
                 int personId = sc.nextInt();
                 boolean checkEmpty = false;
-                for(PersonVo p : personList) {
+                for(PersonVo p : personList) { //해당하는 번호 있는지 확인
                     if(p.getPersonId() == personId) {
                         checkEmpty = true;
                     }
                 }
-                if(!checkEmpty) {
+                if(!checkEmpty) { //해당하는 번호가 없다면
                     System.out.println("존재하지 않는 번호입니다");
                     continue;
                 }
                 return personId;
-            }  catch (InputMismatchException e) {
+            }  catch (InputMismatchException e) { //숫자 외의 키 입력시
                 System.out.println("[번호는 숫자만 입력하실 수 있습니다]");
                 sc.nextLine();
             }
